@@ -75,7 +75,11 @@ export default defineConfig({
       timeout: 120 * 1000,
     },
     {
-      command: "npm run dev",
+      command: "npm run build",
+      timeout: 160 * 1000,
+    },
+    {
+      command: "npm run start",
       reuseExistingServer: !process.env.CI,
     },
   ],
