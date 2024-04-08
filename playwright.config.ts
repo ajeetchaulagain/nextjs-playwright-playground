@@ -73,7 +73,6 @@ export default defineConfig({
     {
       command: "npm run start:api-server",
       timeout: 120 * 1000,
-      port: 8081,
     },
     {
       command: "npm run dev",
