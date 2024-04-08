@@ -19,8 +19,18 @@ type PostData = {
   id: string;
 };
 
-export default function HomePage() {
+export default async function HomePage() {
   const allPostsData: PostData[] = getSortedPostsData();
+  let user = { first_name: "testUser" };
+  try {
+    const response = await fetch("http://localhost:8081/user", {
+      next: { revalidate: 0 },
+    });
+
+    user = await response.json();
+  } catch (e) {
+    console.log("Some error occurred");
+  }
 
   return (
     <>
@@ -33,6 +43,8 @@ export default function HomePage() {
       />
 
       <Spacer size={24} />
+
+      <Copy data-testid="user-copy">Hello. {user?.first_name}</Copy>
 
       <Copy>
         Hello. I am software engineer at X company. I am passionate about
