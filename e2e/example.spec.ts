@@ -5,5 +5,5 @@ test("shows correct username on landing page", async ({ page }) => {
 
   const user = page.getByTestId("user-copy");
 
-  expect(user).toContainText("Ajeet!!");
+  expect(user).toContainText("testUser");
 });
