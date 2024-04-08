@@ -22,15 +22,15 @@ type PostData = {
 export default async function HomePage() {
   const allPostsData: PostData[] = getSortedPostsData();
   let user = { first_name: "testUser" };
-  try {
-    const response = await fetch("http://localhost:8081/user", {
-      next: { revalidate: 0 },
-    });
+  // try {
+  //   const response = await fetch("http://localhost:8081/user", {
+  //     next: { revalidate: 0 },
+  //   });
 
-    user = await response.json();
-  } catch (e) {
-    console.log("Some error occurred");
-  }
+  //   user = await response.json();
+  // } catch (e) {
+  //   console.log("Some error occurred");
+  // }
 
   return (
     <>
